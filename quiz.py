@@ -34,7 +34,10 @@ f1()""",
 
 l1=[1, 2, 3, [4]]
 l2=list(l1)
-id(l1)==id(l2)""",]
+id(l1)==id(l2)""",
+"Which of the factors affect the performance of learner system does not include?",
+" A model of language consists of the categories which does not include?"
+          ]
 
 option=[
         ["Type error","       ' '       ","       -1       ","  Not found" ],
@@ -47,9 +50,11 @@ option=[
         [" Error "," 100   "," 101   "," 99    " ],
         [" Error                                            "," The local variable is shadowed  "," Undefined behavior                     ","  The global variable is shadowed"  ],
         [" True                  "," False                 "," Error                  "," Address of l1     " ],
+        [" Representation scheme used ","  Training scenario "," Type of feedback "," Good data structures " ],
+        ["  Language units "," Role structure of units "," System constraints "," Structural units "],
         ]
 
-ans = [2,2,0,2,1,2,2,1,3,1]
+ans = [2,2,0,2,1,2,2,1,3,1,3,1]
 
 user_ans=[]
 #global index
@@ -62,13 +67,17 @@ def rank():
     global score,rem
     #win.geometry('600x410')
     if score==0:
-        rem='Fail'
-    elif score>0 and score<=30:
-        rem='Average'
-    elif score>30 and score<=60:
-        rem='Good'
-    elif score>60 and score<=100:
-        rem='Excellent'    
+        rem='F'
+    elif score>0 and score<=25:
+        rem='D'
+    elif score>25 and score<=50:
+        rem='C'
+    elif score>50 and score<=75:
+        rem='B'
+    elif score>75 and score<=90:
+        rem='A'
+    elif score>90 and score<=100:
+        rem='O'
     else:
         rem='not applicable'
     cursor.execute('UPDATE mcqdata SET Score=?,Remark=? WHERE Remark=?;',(score,rem,"---"))
